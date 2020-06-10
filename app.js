@@ -17,8 +17,13 @@ app.use(express.static(path.join(__dirname , "/Public")));
 app.set("views", "./src/views");
 app.set("view engine" , "ejs");
 
+const nav =[
+    {link:"/books",title:"Books"},
+    {link:"/authors" , title:"Authours"}
+];
 
-const bookRouter = require("./src/routes/bookRoutes");
+
+const bookRouter = require("./src/routes/bookRoutes")(nav);
 
 app.use("/books", bookRouter);
 app.get("/",(req,res) => {
