@@ -2,7 +2,7 @@ const  express = require("express");
 const bookRouter = express.Router();
 
 
-function router(){
+function router(nav){
     const  books =[
         {
             "title": "Unlocking Android",
@@ -905,8 +905,7 @@ function router(){
             res.render(
                 "bookListView",
                 {
-                    nav:[{link:"/books",title:"Books"},
-                        {link:"/authors" , title:"Authours"}],
+                    nav,
                     title:"Library",
                     books
                 }
@@ -919,17 +918,18 @@ function router(){
             res.render(
                 "bookView",
                 {
-                    nav:[{link:"/books",title:"Books"},
-                        {link:"/authors" , title:"Authours"}],
+                    nav,
                     title:"Library",
                     book: books[id]
                 }
     
             // const id =  req.params.id;
-            );   // res.re("hello single books");
+            ); 
+              
         });
+        return bookRouter;
 }
 
 
         
-module.exports= bookRouter;
+module.exports= router;
