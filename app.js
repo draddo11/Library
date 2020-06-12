@@ -18,8 +18,8 @@ app.set("views", "./src/views");
 app.set("view engine" , "ejs");
 
 const nav =[
-    {link:"/books",title:"Books"},
-    {link:"/authors" , title:"Authours"}
+    {link:"/books",title:"Book"},
+    {link:"/authors" , title:"Author"}
 ];
 
 
