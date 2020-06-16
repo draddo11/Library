@@ -905,8 +905,8 @@ function router(nav){
     adminRouter.route('/')
 
     .get((req, res) =>{
-        const url = "mongo://localhost:27017"
-        const dbName="LibraryApp";
+        const url = "mongodb://localhost:27017";
+        const dbName="LibraryAPP";
 
         (async function mongo(){
             let client;
@@ -914,7 +914,7 @@ function router(nav){
                 client = await MongoClient.connect(url);
                 debug("Connected correctly to server");
                 const db= client.db(dbName);
-               const respons= await db.collection(books).insertMany(books);
+               const response= await db.collection("books").insertMany(books);
                res.json(response);
             }catch(err){
                 debug(err.stack);
