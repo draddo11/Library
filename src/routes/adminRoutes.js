@@ -18,8 +18,7 @@ function router(nav){
                 client = await MongoClient.connect(url);
                 debug("Connected correctly to server");
                 const db= client.db(dbName);
-                await db.collection
-
+                await db.collection(books).insertMany(books);
             }catch(err){
 
             }
