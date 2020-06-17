@@ -1,4 +1,6 @@
 const  express = require("express");
+const Db = require("mongodb/lib/db");
+const db_ops = require("mongodb/lib/operations/db_ops");
 const bookRouter = express.Router();
 
 
@@ -900,6 +902,8 @@ function router(nav){
             "authors": ["Vikram Goyal"],
             "categories": ["Java"]
         }];
+
+    // db.LibraryApp.insert(books);
     bookRouter.route("/")
         .get((req,res) => {
             res.render(

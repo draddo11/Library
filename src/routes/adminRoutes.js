@@ -906,15 +906,15 @@ function router(nav){
 
     .get((req, res) =>{
         const url = "mongodb://localhost:27017";
-        const dbName="LibraryAPP";
+        const dbName="LibraryApp";
 
         (async function mongo(){
             let client;
             try{
                 client = await MongoClient.connect(url);
                 debug("Connected correctly to server");
-                const db= client.db(dbName);
-               const response= await db.collection("books").insertMany(books);
+                const db = client.db(dbName);
+               const response = await db.collection("books").insertMany(books);
                res.json(response);
             }catch(err){
                 debug(err.stack);
