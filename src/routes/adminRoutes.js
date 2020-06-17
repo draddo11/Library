@@ -3,7 +3,7 @@ const {MongoClient} = require("mongodb");
 const debug =require("debug")("app:adminRoutes");
 // const MongoClient = require("mongodb/lib/mongo_client");
 const adminRouter = express.Router();
-const  books =[
+const  books = [
     {
         "title": "Unlocking Android",
         "isbn": "1933988673",
@@ -899,13 +899,13 @@ const  books =[
         "status": "PUBLISH",
         "authors": ["Vikram Goyal"],
         "categories": ["Java"]
-    }];
+    }]
 
 function router(nav){
     adminRouter.route('/')
 
     .get((req, res) =>{
-        const url = "mongodb://localhost:27017";
+        const url = "mongodb://localhost:27017/LibraryApp";
         const dbName="LibraryApp";
 
         (async function mongo(){
